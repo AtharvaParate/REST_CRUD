@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const PORT = 8080;
+const { v4: uuidv4 } = require("uuid");
 
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
@@ -15,14 +16,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 let posts = [
   {
+    id: uuidv4(),
     username: "atharva",
     content: "I love coding",
   },
   {
+    id: uuidv4(),
     username: "suhaib",
     content: "Hard work is the key to success",
   },
   {
+    id: uuidv4(),
     username: "madhav",
     content: "I got selected for my first internship!",
   },
@@ -38,8 +42,15 @@ app.get("/posts/new", (req, res) => {
 
 app.post("/posts", (req, res) => {
   let { username, content } = req.body;
-  posts.push({ username, content });
+  let id = uuidv4();
+  posts.push({ id, username, content });
   res.redirect("/posts");
+});
+
+app.get("/posts/:id", (req, res) => {
+  let { id } = req.params;
+  let post = posts.find((p) => id === p.id);
+  res.render("show.ejs", { post });
 });
 
 app.get("/", (req, res) => {
