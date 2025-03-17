@@ -1,0 +1,25 @@
+{
+  "name": "rest_crud",
+  "version": "1.0.0",
+  "description": "Building Quora's most basic version to facilitate CRUD operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtharvaParate/REST_CRUD.git"
+  },
+  "keywords": [],
+  "author": "Atharva",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AtharvaParate/REST_CRUD/issues"
+  },
+  "homepage": "https://github.com/AtharvaParate/REST_CRUD#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
